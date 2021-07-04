@@ -1,0 +1,43 @@
+{
+  "name": "pfreak",
+  "description": "pFreak is a unit-level JavaScript benchmarking and testing framework.",
+  "version": "0.3.0",
+  "main": "main.js",
+  "type": "module",
+  "bin": {
+    "pfreak": "./bin/cli.js"
+  },
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dumijay/pfreak.git"
+  },
+  "keywords": [
+    "javascript",
+    "ui",
+    "library",
+    "performance",
+    "benchmark",
+    "testing",
+    "unit benchmarking",
+    "unit testing",
+    "framework",
+    "headless",
+    "puppeteer",
+    "node",
+    "js"
+  ],
+  "author": "Dumi Jay",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dumijay/pfreak/issues"
+  },
+  "homepage": "https://github.com/dumijay/pfreak#readme",
+  "dependencies": {
+    "devtools-timeline-model": "^1.4.0",
+    "http-server": "^0.12.3",
+    "puppeteer": "^9.1.1",
+    "timeline-viewer": "ChromeDevTools/timeline-viewer"
+  }
+}
