@@ -117,5 +117,3 @@ ___
 ## How to contribute?
 Your contributions are very welcome. I just created this as a side project to benchmark and test the [CalDOM](https://caldom.org) UI library I created. Figured that this could be useful for others as well. I don't have a grand plan for this yet, please feel free to jump in :)
 
-
-
