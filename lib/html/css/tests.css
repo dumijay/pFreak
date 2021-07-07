@@ -1,0 +1,7 @@
+.passed-test{
+    color: #0B0;
+}
+
+.failed-test{
+    color: #D00;
+}

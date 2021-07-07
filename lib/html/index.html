@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results</title>
 
-    <link rel="stylesheet" href="css/main.css">    
+    <link rel="stylesheet" href="css/common.css">    
+    <link rel="stylesheet" href="css/tests.css">    
+    <link rel="stylesheet" href="css/benchmark.css">
 </head>
 
 <body>
@@ -22,24 +24,6 @@
                 <select id="base-candidate-select"></select>
 
                 <div id="kpis">
-                    
-                    <label for="kpi-Scripting">Scripting</label>
-                    <input type="checkbox" id="kpi-Scripting" data-kpi="Scripting" checked />
-
-                    <label for="kpi-Layout">Layout</label>
-                    <input type="checkbox" id="kpi-Layout" data-kpi="Layout" />
-
-                    <label for="kpi-Paint">Paint</label>
-                    <input type="checkbox" id="kpi-Paint" data-kpi="Paint" />
-
-                    <label for="kpi-UpdateLayerTree">UpdateLayerTree</label>
-                    <input type="checkbox" id="kpi-UpdateLayerTree" data-kpi="UpdateLayerTree" />
-
-                    <label for="kpi-UpdateLayoutTree">UpdateLayoutTree</label>
-                    <input type="checkbox" id="kpi-UpdateLayoutTree" data-kpi="UpdateLayoutTree" />
-
-                    <label for="kpi-CompositeLayers">CompositeLayers</label>
-                    <input type="checkbox" id="kpi-CompositeLayers" data-kpi="CompositeLayers" />
 
                 </div>
             </div>
@@ -58,8 +42,8 @@
 
         <div class="separator"></div>
 
-        <section id="footer">
-            <h2>Mechanism</h2>
+        <section id="benchmark-mechanism">
+            <h2>Benchmark Mechanism</h2>
             <ul>
                 <li>The benchmark is automated through <a href="https://github.com/puppeteer/puppeteer/" target="_blank">Puppeteer</a> and using <a href="https://github.com/paulirish/devtools-timeline-model" target="_blank">devtools-timeline-model</a> to parse raw trace data. (Equavalent of manually checking javascript execution time through Dev Tools Performance tab.)</li>
                 <li>Each task is iterated <span class="iteration-count"></span> times and mean execution duration is taken.</li>
@@ -79,6 +63,13 @@
                     </ol>
                 </li>
                 <li>The mean execution duration is in microseconds. (1000 Microseconds = 1 Millisecond)</li>
+                <li>Coefficient of variation is shown below the execution duration.
+                    <ul>
+                        <li>This is how much iterations deviated from its mean execution duration. Lower deviation means the test is stable.</li>
+                        <li>Variation for smaller operations can be high. If that's the case, repeat the task equally for all candidates to increase the execution time.</li>
+                        <li>Refer _task_template.js for details.</li>
+                    </ul>
+                </li>
                 <li>Factor of slowness is compared against the selected base candidate. Eg:
                     <ul>
                         <li>Vanilla JS execution duration = 400ms</li>
@@ -89,19 +80,34 @@
             </ul>
         </section>
 
-        <section>
+        <section id="pfreak-data">
             <h2>pFreak Config &amp; Candidate Versions</h2>
             <textarea id="pfreak-config"></textarea>
+
+            <p>
+                <a href="./results.json">Compiled results.json</a>
+            </p>
+        </section>
+        
+        <section>
+            <div class="back-overlay"></div>
+            <div id="raw-traces-popup" class="popup">
+
+                <h3>Raw trace data of iterations</h3>
+
+                <ol id="raw-traces-list" class="scrollable"></ol>
+                <button class="close-button">X</button>
+            </div>
         </section>
 
-        <section>
-            <h2>Raw Trace Data</h2>
+        <section id="status-indicator">
+            <p>Loading, please wait...</p>
+        </section>
 
-            <ul>
-                <li><a href="./results.json">Compiled results.json</a></li>
+        <div class="separator"></div>
 
-                <div id="raw-data"></div>
-            </ul>
+        <section id="footer-note">
+            <p class="text-center">This report was produced by <a href="https://github.com/dumijay/pfreak" target="_blank">pFreak</a> Benchmarking & Testing Framework.</p>
         </section>
     </div>
 

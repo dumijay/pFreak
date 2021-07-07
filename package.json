@@ -1,7 +1,7 @@
 {
   "name": "pfreak",
   "description": "pFreak is a unit-level JavaScript benchmarking and testing framework.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "main.js",
   "type": "module",
   "bin": {
@@ -20,11 +20,18 @@
     "performance",
     "benchmark",
     "testing",
+    "test",
+    "assert",
     "unit benchmarking",
     "unit testing",
     "framework",
     "headless",
     "puppeteer",
+    "webdriver",
+    "frontend",
+    "jest",
+    "mocha",
+    "chai",
     "node",
     "js"
   ],

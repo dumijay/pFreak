@@ -1,0 +1,33 @@
+
+#benchmark-controls{
+    display: none;
+}
+
+#benchmark-controls.visible{
+    display: inline-block !important;
+}
+
+#kpi-controls{
+    position: sticky;
+    top: 0;
+    padding: 1em;
+    background: #FFF;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+}
+
+.dark #kpi-controls{
+    background: #000;
+}
+
+#kpis{
+    display: inline-block;
+}
+
+#base-candidate-select{
+    margin-right: 1em;
+}
+
+#kpis input{
+    margin-right: 1em;
+}

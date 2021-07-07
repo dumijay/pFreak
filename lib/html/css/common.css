@@ -19,27 +19,6 @@ body.dark{
     padding: 0 1em;
 }
 
-#benchmark-controls{
-    display: none;
-}
-
-#benchmark-controls.visible{
-    display: inline-block;
-}
-
-#kpi-controls{
-    position: sticky;
-    top: 0;
-    padding: 1em;
-    background: #FFF;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-    border-radius: 5px;
-}
-
-.dark #kpi-controls{
-    background: #000;
-}
-
 #logo{
     color: #0B0 !important;
     /* background: #0FF; */
@@ -51,17 +30,6 @@ body.dark{
     text-decoration: none !important;
 }
 
-#kpis{
-    display: inline-block;
-}
-
-#base-candidate-select{
-    margin-right: 1em;
-}
-
-#kpis input{
-    margin-right: 1em;
-}
 
 .separator{
     width: 80%;
@@ -101,6 +69,12 @@ td.remarks{
     text-align: left;
 }
 
+td p{
+    font-size: 0.8em;
+    margin: 0;
+    color: #696969;
+}
+
 tr td:nth-child(1){
     text-align: left !important;
 }
@@ -121,21 +95,88 @@ h2{
     margin-top: 1em;
 }
 
-#run-button{
-    margin-top: 1em;
-    display: none;
-}
-
-.passed-test{
-    color: #0B0;
-}
-
-.failed-test{
-    color: #D00;
-}
-
 #pfreak-config{
     width: 100%;
     height: 33vh;
     border-radius: 5px;
+}
+
+.back-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+.close-button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background-image: linear-gradient(rgb(219, 42, 42), rgb(161, 15, 15));
+    cursor: pointer;
+    line-height: 30px;
+    font-size: 18px;
+    text-align: center;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    transform: translate(50%, -50%);
+}
+
+.scrollable{
+    overflow: auto;
+}
+
+.popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: fit-content;
+    padding: 2em;
+    max-width: 90vw;
+    max-height: 90vh;
+    background: #FFF;
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+#status-indicator{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#status-indicator.hidden{
+    display: none !important;
+}
+
+#benchmark-mechanism, #pfreak-data{
+    display: none;
+}
+
+.visible{
+    display: block !important;
+}
+
+.text-center{
+    text-align: center;
+}
+
+#footer-note{
+    display: none;
+}
+
+.orange-text{
+    color: orange;
 }
