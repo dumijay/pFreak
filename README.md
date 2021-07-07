@@ -1,17 +1,21 @@
-# pFreak 0.3
+# pFreak
 
-pFreak is a unit-level JavaScript benchmarking and testing framework.
+## What if,
+... we can automate DevTool's Performance tab, benchmark & assert multiple tasks, then summarize all that into a nice web-based dashboard where we can compare key metrics to optimize JavaScript & UI/UX performance?
 
-The main objective is to re-use unit tests as a benchmark too. The framework implements a flexible way to test and benchmark multiple candidates, enabling meaningful A/B testing and measuring performance changes between versions.
+## Intro
+pFreak is a unit-level 2-in-1 JavaScript benchmarking and testing framework.
 
-Also, it's very suitable to benchmark asynchronous executions since pFreak is based on Devtool's raw trace data. It calculates execution duration of each unit of code instead of marking start-end based timing approach.
+The framework implements a flexible way to test and benchmark multiple candidates. Enabling meaningful A/B testing and measuring performance changes between different implementations and versions.
+
+Also, it's very suitable to benchmark asynchronous executions since pFreak is based on Chromium DevTool's raw trace data. It calculates execution duration of each unit of work instead of marking start-end based timing approach.
 
 Basically, it provides a highly flexible and scalable framework to separate pre-execution setup, execution and assert function.
 
 This was originally implemented as a part of [CalDOM](https://caldom.org) UI library development.
 
 ## How it works?
-Behind the scene, pFreak is using [Puppeteer](https://github.com/puppeteer/puppeteer/) to automate the process and capture trace data through Chrome Devtools Protocol(CDP) session (same as Developer Tools Performance tab). The captured trace is processed by [devtools-timeline-model](https://github.com/paulirish/devtools-timeline-model). Then the formatted results can be viewed on the browser.
+Behind the scene, pFreak is using [Puppeteer](https://github.com/puppeteer/puppeteer/) to automate the process and capture trace data through Chrome DevTools Protocol(CDP) session (same as Developer Tools Performance tab). The captured raw trace data is processed by [devtools-timeline-model](https://github.com/paulirish/devtools-timeline-model). Then the formatted results can be viewed on the browser.
 
 ___
 
@@ -45,7 +49,12 @@ ___
     10. Parse raw trace data using devtools-timeline-model to extract javascript and layout/paint execution times.
     11. Close Page
 
-- The mean execution duration is in microseconds. (1000 Microseconds = 1 Millisecond)
+- The mean execution duration is in microseconds. (1000 Microseconds = 1 Millisecond).
+- Coefficient of variation is shown below the execution duration.
+    - This is how much iterations deviated from its mean execution duration. Lower deviation means the test is stable.
+    - Variation for smaller operations can be high. If that's the case, repeat the task equally for all candidates to increase the execution time.
+    - Refer _task_template.js for details.
+
 - Factor of slowness is compared against the base candidate. Eg: 
     - Vanilla JS execution duration = 400ms
     - Candidate 1 execution duration= 600ms

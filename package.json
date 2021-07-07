@@ -14,13 +14,14 @@
     "url": "git+https://github.com/dumijay/pfreak.git"
   },
   "keywords": [
+    "benchmark",
+    "test",
     "javascript",
-    "ui",
+    "UI",
+    "UX",
     "library",
     "performance",
-    "benchmark",
     "testing",
-    "test",
     "assert",
     "unit benchmarking",
     "unit testing",
@@ -33,7 +34,11 @@
     "mocha",
     "chai",
     "node",
-    "js"
+    "js",
+    "devtools",
+    "developer tools",
+    "profiling",
+    "lighthouse"
   ],
   "author": "Dumi Jay",
   "license": "MIT",
