@@ -35,6 +35,21 @@ export async function main(){
         initial_config.specific_candidates = args_config["candidate"];
     }
 
+    if( args_config["headless"] ){
+        initial_config.headless = args_config["headless"][0] != "false";
+    }
+
+    if( args_config["keep-tab"] ){
+        initial_config.keep_tab = args_config["keep-tab"][0] != "false";
+        if( initial_config.keep_tab ){
+            initial_config.headless = false;
+        }
+    }
+
+    // if( args_config["assert-delay"] ){
+    //     initial_config.assert_delay = parseInt(args_config["assert-delay"][0]);
+    // }
+
     if( args_config["other"].length != 0 ){
         initial_config.path_to_folder = args_config["other"][0];
     }
@@ -141,10 +156,15 @@ function showHelp(){
     
     log(`${PACKAGE_NAME} show path/to/folder/ \t\t Start http-server to view results on browser.\n`);
 
-    log(`--iterations n \t\t\t\t Set iteration count. Default is 10.`)
-    log(`--task task_name \t\t\t Run only specific task. Provide multiple --task flags to specify multiple tasks. Default is all.`)
-    log(`--category category_name \t\t Run only specific task category. Provide multiple --category flags to specify multiple task categories. Default is all.`)
-    log(`--candidate category_name \t\t Run only specific candidate. Provide multiple --candidate flags to specify multiple candidates. Default is all.`)
+    console.log("Task Specific Flags:");
+
+    log(`--iterations n \t\t\t\t Set iteration count. Default is 10.`);
+    log(`--task task_name \t\t\t Run only specific task. Provide multiple --task flags to specify multiple tasks. Default is all.`);
+    log(`--category category_name \t\t Run only specific task category. Provide multiple --category flags to specify multiple task categories. Default is all.`);
+    log(`--candidate category_name \t\t Run only specific candidate. Provide multiple --candidate flags to specify multiple candidates. Default is all.\n`);
+
+    log(`--headless true|false \t\t\t Can be used to override config.json headless : value. Default is true.` );
+    log(`--keep-tab true|false \t\t\t Accepts true or false. If true, headless is set to false and keeping the browser tab(s) open after test/benchmark. This is useful to examine failures.` );
 }
 
 export async function handleStartBenchmark(initial_config){
@@ -160,7 +180,9 @@ export async function handleStartBenchmark(initial_config){
     await startBenchmark(config)
         .catch( e => console.trace(e) );
 
-    await browser.close();
+    if( !initial_config.keep_tab ){
+        await browser.close();
+    }
 }
 
 export async function handleStartTests(initial_config){
@@ -176,5 +198,7 @@ export async function handleStartTests(initial_config){
     await startTests(config)
         .catch( e => console.trace(e) );;
 
-    await browser.close();
+    if( !initial_config.keep_tab ){
+        await browser.close();
+    }
 }

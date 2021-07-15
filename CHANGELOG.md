@@ -1,3 +1,17 @@
+# 0.3.2 Change Log
+
+## Added
+* CLI: Added --headless flag Accepts true or false.
+* CLI: Added --keep-tab flag Accepts true or false. If true, headless is set to false and keeping the browser tab(s) open after test/benchmark. This is useful to examine failures.
+* Benchmark: Added task_config.load_libraries = true or false. This is true by default. If set to false, pFreak will not load libraries defined in the config.json. This is useful to benchmark library loading times & initiation.
+
+## Changes
+* Results: All KPIs are now selected by default.
+
+## Fixed
+* Results: Fixed base candidates list not populating correctly if some categories excluded in the overall results.
+* Results: Fixed NaN in overall slowness table when selected different base candidates.
+
 # 0.3.1 Change Log
 
 ## Added

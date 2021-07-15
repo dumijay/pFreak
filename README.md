@@ -1,14 +1,14 @@
 # pFreak
 
 ## What if,
-... we can automate DevTool's Performance tab, benchmark & assert multiple tasks, then summarize all that into a nice web-based dashboard where we can compare key metrics to optimize JavaScript & UI/UX performance?
+... we can automate DevTool's Performance tab, benchmark & assert multiple tasks, save raw trace data of DevTool's Graphical Timeline for post investigations & summarize all that into a nice web-based dashboard where we can compare key metrics to optimize JavaScript & UI/UX performance?
 
 ## Intro
 pFreak is a unit-level 2-in-1 JavaScript benchmarking and testing framework.
 
 The framework implements a flexible way to test and benchmark multiple candidates. Enabling meaningful A/B testing and measuring performance changes between different implementations and versions.
 
-Also, it's very suitable to benchmark asynchronous executions since pFreak is based on Chromium DevTool's raw trace data. It calculates execution duration of each unit of work instead of marking start-end based timing approach.
+Also, it's very suitable to benchmark asynchronous executions since pFreak is based on Chromium DevTool's raw trace data. It calculates the execution duration of each unit of work instead of marking start-end based timing approach.
 
 Basically, it provides a highly flexible and scalable framework to separate pre-execution setup, execution and assert function.
 
@@ -116,4 +116,3 @@ ___
 
 ## How to contribute?
 Your contributions are very welcome. I just created this as a side project to benchmark and test the [CalDOM](https://caldom.org) UI library I created. Figured that this could be useful for others as well. I don't have a grand plan for this yet, please feel free to jump in :)
-
