@@ -1,7 +1,7 @@
 {
   "name": "pfreak",
   "description": "pFreak is a unit-level 2-in-1 JavaScript benchmarking and testing framework.",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "main": "main.js",
   "type": "module",
   "bin": {

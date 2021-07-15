@@ -1,3 +1,7 @@
+# 0.3.3 Change Log
+## Fixed
+* Init: Missing empty_page.html fix.
+
 # 0.3.2 Change Log
 
 ## Added
